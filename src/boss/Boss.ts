@@ -63,6 +63,17 @@ export class Boss {
 
     this.mixer = new THREE.AnimationMixer(model);
     for (const clip of gltf.animations) {
+      // Lock hips X/Z to the first frame: clips with root motion (e.g. Stumble
+      // Backwards) must not slide him away from his spot. Y is kept for falls.
+      for (const track of clip.tracks) {
+        if (track.name.endsWith("Hips.position")) {
+          const v = track.values;
+          for (let i = 3; i < v.length; i += 3) {
+            v[i] = v[0];
+            v[i + 2] = v[2];
+          }
+        }
+      }
       this.actions.set(clip.name as ClipName, this.mixer.clipAction(clip));
     }
     this.mixer.addEventListener("finished", () => this.onClipFinished());
@@ -107,6 +118,8 @@ export class Boss {
   private play(name: ClipName, loop = false, fade = 0.15, speed = 1, clamp = false): void {
     const a = this.actions.get(name);
     if (!a) return;
+    // The downloaded Idle clip is too dance-y at full speed; slowed it reads as calm weight-shifting
+    if (name === "idle") speed *= 0.5;
     this.actions.forEach((o) => {
       if (o !== a) o.fadeOut(fade);
     });

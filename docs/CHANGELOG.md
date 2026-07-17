@@ -2,6 +2,13 @@
 
 Every work session appends an entry here: what changed, newest first.
 
+## [0.2.1] — 2026-07-18
+
+### Fixed
+- Stumble no longer slides the boss backward through the wall: hips X/Z are locked to the first frame for all clips at load (root motion stripped, vertical motion kept for falls). Verified: hip drift during a full stumble is now <3 cm (was ~1 m).
+- Idle "dancing": the downloaded Idle clip now plays at half speed, reading as calm weight-shifting instead of a groove. (Optional better fix later: download a calmer "Standing Idle" from Mixamo and re-run `node tools/run-convert.mjs`.)
+- Added `tools/drift-test.mjs` — deterministic mixer-driven check for root-motion drift.
+
 ## [0.2.0] — 2026-07-18 (approved as big feature by Ben; shipped as 0.1.1, promoted same day)
 
 ### Added
