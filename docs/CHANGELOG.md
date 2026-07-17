@@ -4,6 +4,10 @@ Every work session appends an entry here: what changed, newest first.
 
 ## [0.1.0] — 2026-07-17
 
+### Docs (same day, post-release)
+- Added `docs/CHANGELOG.md` and `docs/VERSION.md` logging system, plus `CLAUDE.md` with mandatory logging rules.
+- Defined owner-approved versioning scheme: big update / big feature bumps require Ben's explicit approval; everything defaults to a small-feature bump. Approval criteria documented in `docs/VERSION.md`.
+
 ### Added
 - Project scaffold: Vite + TypeScript + Three.js (`package.json`, `tsconfig.json`, `index.html`).
 - Design & technical plan in `docs/PLAN.md` (vision, art direction, boss pipeline, interaction system, milestones).

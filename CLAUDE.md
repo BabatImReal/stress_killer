@@ -7,7 +7,7 @@ First-person browser stress-relief game: vent on a cartoon boss until your stres
 After making any change to the project, before ending the turn:
 
 1. **`docs/CHANGELOG.md`** — append what changed under the current version heading (create a new heading when the version bumps). Newest entries first.
-2. **`docs/VERSION.md`** — bump when appropriate and add a row: MINOR when a PLAN.md phase milestone completes, PATCH for fixes/tweaks. Keep `version` in `package.json` in sync.
+2. **`docs/VERSION.md`** — bump the version and add a history row. Scheme is `BIG_UPDATE.BIG_FEATURE.SMALL_FEATURE` and is owner-controlled: **every change defaults to a small-feature bump (third number)**. Never bump the big-update or big-feature number without Ben's explicit approval in the conversation — instead, propose it with evidence against the criteria in `docs/VERSION.md` and wait. Keep `version` in `package.json` in sync.
 
 ## Commands
 
