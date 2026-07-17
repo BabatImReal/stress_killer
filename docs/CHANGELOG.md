@@ -2,6 +2,25 @@
 
 Every work session appends an entry here: what changed, newest first.
 
+## [0.2.0] — 2026-07-18 (approved as big feature by Ben; shipped as 0.1.1, promoted same day)
+
+### Added
+- **Real Mixamo boss character** (Ch33, chosen by Ben) replaces the blocky placeholder: 13 animation clips (idle, 5 taunt variants, head/body/side hit reactions, stumble, dizzy, knockout, get-up) on one skeleton, crossfading via `AnimationMixer`.
+- Asset pipeline: `tools/convert.html` + `tools/convert.ts` + `tools/run-convert.mjs` — browser-based FBX→GLB conversion driven headlessly by Playwright; `gltf-transform` optimization (meshopt + 1024px webp) shrank 69.7 MB → **1.8 MB** (`public/models/boss.glb`).
+- Hitboxes now ride the real skeleton bones (head/spine/arms/legs), so hit zones track him through every animation.
+- Boss state machine rewritten clip-based: per-zone reaction clips with speed scaling by force, heavy hits trigger Stumble Backwards, dizzy plays Dizzy Idle, victory plays Knocked Out (clamped), "Vent again" plays Getting Up; taunts pick randomly from 5 clips.
+- Debug handle `window.__game` and `tools/probe.mjs` (headless mixer-state inspector).
+
+### Fixed
+- Boss no longer fades in from T-pose on load (idle starts with zero fade).
+- Hit decals are world-sized on cm-scale rig bones (world-scale compensation in `Effects.decal`).
+
+### Removed
+- Procedural placeholder boss (box body, canvas faces, spring animations) — superseded by the rigged character.
+
+### Verified
+- `npm run build` clean; headless run: no console errors, idle pose correct, hit reactions/stumble/decals/stars/combo all firing.
+
 ## [0.1.0] — 2026-07-17
 
 ### Docs (post-release)

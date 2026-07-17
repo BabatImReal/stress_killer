@@ -1,6 +1,6 @@
 # Version History
 
-**Current version: 0.1.0** (kept in sync with `package.json`)
+**Current version: 0.2.0** (kept in sync with `package.json`)
 
 ## Versioning scheme (owner-approved)
 
@@ -32,4 +32,5 @@ Format: `BIG_UPDATE.BIG_FEATURE.SMALL_FEATURE` (e.g., `1.2.3`)
 
 | Version | Date | Phase (PLAN.md) | Summary |
 |---------|------------|-----------------|---------|
+| 0.2.0 | 2026-07-18 | Phase 1 complete | **Big feature (approved by Ben):** real Mixamo boss with 13 animation clips replaces placeholder; FBX→GLB pipeline (69.7 MB → 1.8 MB); bone-riding hitboxes; clip-based reaction state machine. Ben notes it needs a round of fixes — to land as 0.2.x patches. |
 | 0.1.0 | 2026-07-17 | Phases 0–2 complete (+ parts of 3) | First playable slice: office scene, placeholder boss with reactions/faces/dizzy state, fully juiced slap, stress meter, victory screen. Verified headlessly. Retroactively counted as big feature 0.1 (accepted by Ben in session). |
