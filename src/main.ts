@@ -29,6 +29,11 @@ scene.add(camRig);
 createRoom(scene);
 const boss = new Boss();
 scene.add(boss.root);
+const hint = document.getElementById("hint")!;
+hint.textContent = "The boss is walking in…";
+void boss.load().then(() => {
+  hint.textContent = "Click your boss to relieve stress";
+});
 const effects = new Effects(scene, camShake);
 const sfx = new Sfx();
 
@@ -89,6 +94,8 @@ function onPress(hit: HitInfo | null): void {
 }
 
 const pointer = new Pointer(container, camera, () => boss.hitMeshes, onPress);
+// Dev console handle for debugging (harmless in prod)
+(window as unknown as Record<string, unknown>).__game = { boss, sfx, hud };
 
 const clock = new THREE.Clock();
 let starAcc = 0;

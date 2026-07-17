@@ -110,7 +110,10 @@ export class Effects {
     target.worldToLocal(lp);
     lp.multiplyScalar(1.05);
     s.position.copy(lp);
-    s.scale.setScalar(0.14 + Math.random() * 0.05);
+    // Counter the parent's world scale so decals are world-sized even on cm-scale rig bones
+    const ws = new THREE.Vector3();
+    target.getWorldScale(ws);
+    s.scale.setScalar((0.14 + Math.random() * 0.05) / (ws.x || 1));
     target.add(s);
     this.decals.push({ s, life: 8 });
     if (this.decals.length > 22) {

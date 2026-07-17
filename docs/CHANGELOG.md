@@ -4,7 +4,8 @@ Every work session appends an entry here: what changed, newest first.
 
 ## [0.1.0] — 2026-07-17
 
-### Docs (same day, post-release)
+### Docs (post-release)
+- 2026-07-18: added `assets_src/mixamo/README.md` — download checklist for the real boss character (PLAN.md §2.1).
 - Added `docs/CHANGELOG.md` and `docs/VERSION.md` logging system, plus `CLAUDE.md` with mandatory logging rules.
 - Defined owner-approved versioning scheme: big update / big feature bumps require Ben's explicit approval; everything defaults to a small-feature bump. Approval criteria documented in `docs/VERSION.md`.
 

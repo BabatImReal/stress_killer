@@ -13,7 +13,7 @@ page.on("console", (m) => {
 page.on("pageerror", (e) => errors.push(String(e)));
 
 await page.goto("http://localhost:5173", { waitUntil: "networkidle" });
-await page.waitForTimeout(1500);
+await page.waitForTimeout(3000);
 await page.screenshot({ path: `${outDir}/01-idle.png` });
 
 // slap the boss: torso is roughly screen center
